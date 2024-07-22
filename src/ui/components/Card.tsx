@@ -58,25 +58,29 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginRight: 10,
+    borderRadius: 10,
   },
   imageColumn: {
     width: '100%',
     height: 150,
     marginBottom: 10,
+    borderRadius: 10,
   },
   textContainer: {
     flex: 1,
   },
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'RobotoSlab-SemiBold',
   },
   author: {
     fontSize: 14,
     color: 'gray',
+    fontFamily: 'RobotoSlab-Regular',
   },
   type: {
     fontSize: 12,
     color: 'black',
+    fontFamily: 'RobotoSlab-Regular',
   },
 })
