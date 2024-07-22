@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {View, Text, StyleSheet, Image} from 'react-native'
+import {View, Text, StyleSheet, Image, Pressable} from 'react-native'
 
 interface CardProps {
   title: string
@@ -7,6 +7,7 @@ interface CardProps {
   image: string
   type: string
   layout: 'row' | 'column'
+  onPress?: () => void
 }
 
 const fallbackImage =
@@ -18,10 +19,12 @@ export const Card: React.FC<CardProps> = ({
   image,
   type,
   layout,
+  onPress,
 }) => {
   const [imageUri, setImageUri] = useState(image)
   return (
-    <View
+    <Pressable
+      onPress={onPress}
       style={[
         styles.card,
         layout === 'row' ? styles.rowLayout : styles.columnLayout,
@@ -36,7 +39,7 @@ export const Card: React.FC<CardProps> = ({
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.author}>{author}</Text>
       </View>
-    </View>
+    </Pressable>
   )
 }
 

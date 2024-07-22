@@ -1,10 +1,12 @@
-// src/ui/screens/Home/HomeScreen.tsx
 import React from 'react'
 import {View, Text, ActivityIndicator, StyleSheet, FlatList} from 'react-native'
 import {ItemService} from '../../../core/domain/services/ItemService.ts'
 import {Card} from '../../components/Card.tsx'
+import {useNavigation} from '@react-navigation/native'
+import {DetailScreenNavigationProp} from '../../../navigation/types.ts'
 
 export const Home = () => {
+  const navigation = useNavigation<DetailScreenNavigationProp>()
   const {loading, error, items} = ItemService()
 
   if (loading) return <ActivityIndicator />
@@ -23,6 +25,7 @@ export const Home = () => {
             image={item.image}
             type={item.category.title}
             layout={2 ? 'column' : 'row'}
+            onPress={() => navigation.navigate('Detail', {id: item.id})}
           />
         )}
       />

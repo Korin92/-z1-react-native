@@ -7,6 +7,7 @@ import HomeScreen from './src/ui/pages/home/Home'
 import {globalStyles} from './src/styles/globalStyles'
 import {View} from 'react-native'
 import {background} from './src/styles/colors'
+import DetailScreen from './src/ui/pages/detail/Detail'
 
 const Stack = createStackNavigator()
 
@@ -34,6 +35,7 @@ function App(): React.JSX.Element {
               },
             }}>
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Detail" component={DetailScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
