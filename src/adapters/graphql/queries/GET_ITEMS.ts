@@ -5,6 +5,13 @@ export const GET_ITEMS = gql`
     items {
       id
       title
+      content
+      image
+      author
+      category {
+        id
+        title
+      }
     }
   }
 `
