@@ -1,9 +1,9 @@
 import React from 'react'
 import {View, Text, ActivityIndicator, StyleSheet, FlatList} from 'react-native'
-import {ItemService} from '../../../core/domain/services/ItemService.ts'
 import {Card} from '../../components/Card.tsx'
 import {useNavigation} from '@react-navigation/native'
 import {DetailScreenNavigationProp} from '../../../navigation/types.ts'
+import {ItemService} from '../../../services/items/domain/services/ItemService.ts'
 
 export const Home = () => {
   const navigation = useNavigation<DetailScreenNavigationProp>()

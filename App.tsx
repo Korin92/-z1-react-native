@@ -1,6 +1,6 @@
 import React from 'react'
 import {ApolloProvider} from '@apollo/client'
-import client from './src/adapters/apollo/apolloClient'
+import client from './src/apollo/apolloClient'
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import HomeScreen from './src/ui/pages/home/Home'

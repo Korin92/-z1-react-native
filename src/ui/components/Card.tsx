@@ -1,5 +1,12 @@
 import React, {useState} from 'react'
-import {View, Text, StyleSheet, Image, Pressable} from 'react-native'
+import {
+  AuthorText,
+  CardContainer,
+  StyledImage,
+  TextContainer,
+  TitleText,
+  TypeText,
+} from './Card.style.ts'
 
 interface CardProps {
   title: string
@@ -22,68 +29,19 @@ export const Card: React.FC<CardProps> = ({
   onPress,
 }) => {
   const [imageUri, setImageUri] = useState(image)
+
   return (
-    <Pressable
-      onPress={onPress}
-      style={[
-        styles.card,
-        layout === 'row' ? styles.rowLayout : styles.columnLayout,
-      ]}>
-      <Image
+    <CardContainer onPress={onPress} layout={layout}>
+      <StyledImage
         source={{uri: imageUri}}
-        style={layout === 'row' ? styles.imageRow : styles.imageColumn}
+        layout={layout}
         onError={() => setImageUri(fallbackImage)}
       />
-      <View style={styles.textContainer}>
-        <Text style={styles.type}>{type}</Text>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.author}>{author}</Text>
-      </View>
-    </Pressable>
+      <TextContainer>
+        <TypeText>{type}</TypeText>
+        <TitleText>{title}</TitleText>
+        <AuthorText>{author}</AuthorText>
+      </TextContainer>
+    </CardContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  card: {
-    margin: 10,
-    backgroundColor: 'white',
-    padding: 16,
-    borderRadius: 10,
-    flex: 1,
-  },
-  rowLayout: {
-    flexDirection: 'row',
-  },
-  columnLayout: {
-    flexDirection: 'column',
-  },
-  imageRow: {
-    width: 100,
-    height: 100,
-    marginRight: 10,
-    borderRadius: 10,
-  },
-  imageColumn: {
-    width: '100%',
-    height: 150,
-    marginBottom: 10,
-    borderRadius: 10,
-  },
-  textContainer: {
-    flex: 1,
-  },
-  title: {
-    fontSize: 18,
-    fontFamily: 'RobotoSlab-SemiBold',
-  },
-  author: {
-    fontSize: 14,
-    color: 'gray',
-    fontFamily: 'RobotoSlab-Regular',
-  },
-  type: {
-    fontSize: 12,
-    color: 'black',
-    fontFamily: 'RobotoSlab-Regular',
-  },
-})
