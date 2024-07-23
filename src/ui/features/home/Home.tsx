@@ -4,7 +4,7 @@ import { Card } from '../../components/Card.tsx'
 import { useNavigation } from '@react-navigation/native'
 import { DetailScreenNavigationProp, HomeScreenRouteProp } from '../../../navigation/types.ts'
 import { ItemService } from '../../../services/items/domain/services/item-service.ts'
-import { filterItemsByCategory } from '../../../utils/filtersItemByCategory.ts'
+import { filterItemsByCategory } from '../../../utils/filters-item-by-category.ts'
 
 interface HomeProps {
     route: HomeScreenRouteProp
