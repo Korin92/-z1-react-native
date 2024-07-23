@@ -1,6 +1,11 @@
 import React from 'react'
-import {Home} from '../../features/home/Home'
+import { Home } from '../../features/home/Home'
+import { HomeScreenRouteProp } from '../../../navigation/types.ts'
 
-export default function HomeScreen(): React.JSX.Element {
-  return <Home />
+interface HomeScreenProps {
+    route: HomeScreenRouteProp
+}
+
+export const HomeScreen: React.FC<HomeScreenProps> = ({ route }) => {
+    return <Home route={route} />
 }
