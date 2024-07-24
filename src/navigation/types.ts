@@ -5,6 +5,7 @@ import { RouteProp } from '@react-navigation/native'
 export type RootStackParamList = {
     Home: { categoryId: string | null }
     Detail: { id: string }
+    PlayerDetail: undefined
 }
 
 export type TabNavParamList = {
@@ -12,5 +13,5 @@ export type TabNavParamList = {
 }
 
 export type HomeScreenProps = MaterialTopTabScreenProps<TabNavParamList, string>
-export type DetailScreenNavigationProp = StackNavigationProp<TabNavParamList, string>
+export type DetailScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Detail'>
 export type DetailScreenRouteProp = RouteProp<RootStackParamList, 'Detail'>
