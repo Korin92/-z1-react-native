@@ -1,14 +1,48 @@
 module.exports = {
-  root: true,
-  extends: [
-    '@react-native-community',
-    'plugin:prettier/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-  ],
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'jest', 'prettier'],
-  env: {
-    'jest/globals': true,
-  },
+    root: true,
+    env: {
+        browser: true,
+        es2021: true,
+        node: true,
+    },
+    settings: {
+        react: {
+            version: 'detect',
+        },
+    },
+    extends: [
+        '@react-native-community',
+        'plugin:react/recommended',
+        'standard-with-typescript',
+        'prettier',
+    ],
+    overrides: [
+        {
+            env: {
+                node: true,
+            },
+            files: ['.eslintrc.{js,cjs,mjs,ts,cts,tsx}'],
+            parserOptions: {
+                sourceType: 'script',
+            },
+        },
+        {
+            files: ['**/*.css'],
+            plugins: ['css'],
+            rules: {
+                'css/recommended': 'error',
+            },
+        },
+    ],
+    parserOptions: {
+        ecmaFeatures: {
+            tsx: true,
+        },
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        project: './tsconfig.json',
+        extraFileExtensions: ['.css'],
+    },
+    plugins: ['react'],
+    parser: '@typescript-eslint/parser',
 }
