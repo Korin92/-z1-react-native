@@ -1,14 +1,7 @@
-import React, { memo, useCallback, useState } from 'react'
-import {
-    AuthorText,
-    CardContainer,
-    StyledImage,
-    StyledImageContainer,
-    TextContainer,
-    TitleText,
-    TypeText,
-} from './Card.style.ts'
-import { ActivityIndicator } from 'react-native'
+import React, { memo } from 'react'
+import { AuthorText, CardContainer, TextContainer, TitleText, TypeText } from './Card.style.ts'
+
+import { CustomImage } from './image/custom-image.tsx'
 
 interface CardProps {
     title: string
@@ -19,32 +12,10 @@ interface CardProps {
     onPress?: () => void
 }
 
-const fallbackImage = 'https://via.placeholder.com/640x360/808080/000000?text=No+Image+Available'
-
 const CardComponent: React.FC<CardProps> = ({ title, author, image, type, layout, onPress }) => {
-    const [imageUri, setImageUri] = useState(image)
-    const [isLoading, setIsLoading] = useState(true)
-
-    const handleLoad = useCallback(() => {
-        setIsLoading(false)
-    }, [])
-
-    const handleError = useCallback(() => {
-        setImageUri(fallbackImage)
-        setIsLoading(false)
-    }, [])
-
     return (
         <CardContainer onPress={onPress} layout={layout}>
-            <StyledImageContainer layout={layout}>
-                {isLoading && <ActivityIndicator />}
-                <StyledImage
-                    source={{ uri: imageUri }}
-                    onLoad={handleLoad}
-                    onError={handleError}
-                    layout={layout}
-                />
-            </StyledImageContainer>
+            <CustomImage source={image} layout={layout} />
             <TextContainer>
                 <TypeText>{type ?? 'no type'}</TypeText>
                 <TitleText>{title ?? 'no title'}</TitleText>
