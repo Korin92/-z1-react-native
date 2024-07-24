@@ -1,8 +1,10 @@
 import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
+import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack'
 import { background } from '../styles/colors.ts'
 import DetailScreen from '../ui/pages/detail/Detail.tsx'
 import { TabNavigator } from './tab-navigator.tsx'
+import { BackButtonNavigation } from '../ui/components/back-button-navigation/back-button-navigation.tsx'
+import PlayerDetailScreen from '../ui/pages/player-detail/player-detail.tsx'
 
 const Stack = createStackNavigator()
 
@@ -26,8 +28,25 @@ export default function StackNavigator() {
                     backgroundColor: background,
                 },
             }}>
-            <Stack.Screen name="Detail" component={DetailScreen} />
+            <Stack.Screen
+                name="Detail"
+                component={DetailScreen}
+                options={{
+                    gestureDirection: 'vertical',
+                    cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+                    headerLeft: () => <BackButtonNavigation />,
+                }}
+            />
             <Stack.Screen name="Home" component={TabNavigator} />
+            <Stack.Screen
+                name="PlayerDetail"
+                component={PlayerDetailScreen}
+                options={{
+                    gestureDirection: 'vertical',
+                    cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+                    headerLeft: () => <BackButtonNavigation />,
+                }}
+            />
         </Stack.Navigator>
     )
 }
