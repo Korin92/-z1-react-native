@@ -1,5 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack'
 import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs'
+import { RouteProp } from '@react-navigation/native'
 
 export type RootStackParamList = {
     Home: { categoryId: string | null }
@@ -11,4 +12,5 @@ export type TabNavParamList = {
 }
 
 export type HomeScreenProps = MaterialTopTabScreenProps<TabNavParamList, string>
-export type DetailScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Detail'>
+export type DetailScreenNavigationProp = StackNavigationProp<TabNavParamList, string>
+export type DetailScreenRouteProp = RouteProp<RootStackParamList, 'Detail'>
