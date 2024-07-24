@@ -3,8 +3,9 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { CategoryService } from '../services/categories/domain/services/category-service.ts'
 import { HomeScreen } from '../ui/pages/home/Home.tsx'
 import { ActivityIndicator, Text } from 'react-native'
+import { TabNavParamList } from './types.ts'
 
-const Tab = createMaterialTopTabNavigator()
+const Tab = createMaterialTopTabNavigator<TabNavParamList>()
 
 export const TabNavigator = () => {
     const { loading, error, categories } = CategoryService()
