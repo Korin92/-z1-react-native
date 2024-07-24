@@ -9,6 +9,8 @@ interface GetItemsData {
 export const useGetItems = () => {
     const { loading, error, data } = useQuery<GetItemsData>(GET_ITEMS)
 
+    if (!data) return { loading, error, items: [] }
+
     const items: Item[] = data ? data.items : []
 
     return { loading, error, items }
