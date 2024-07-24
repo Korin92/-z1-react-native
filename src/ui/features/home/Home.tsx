@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
+import { Text, ActivityIndicator } from 'react-native'
 import { Card } from '../../components/Card.tsx'
 import { RouteProp, useNavigation } from '@react-navigation/native'
 import { DetailScreenNavigationProp, TabNavParamList } from '../../../navigation/types.ts'
@@ -7,6 +7,7 @@ import { ItemService } from '../../../services/items/domain/services/item-servic
 import { Item } from '../../../services/items/domain/entities/Item.ts'
 import { FlashList } from '@shopify/flash-list'
 import { ItemByCategoryService } from '../../../services/items/domain/services/item-by-category-service.ts'
+import { HomeContainer } from './Home.style.ts'
 
 type HomeProps = {
     route: RouteProp<TabNavParamList, keyof TabNavParamList>
@@ -44,7 +45,7 @@ export const Home: React.FC<HomeProps> = ({ route }) => {
     if (error) return <Text>Error: {error.message}</Text>
 
     return (
-        <View style={styles.container}>
+        <HomeContainer>
             <FlashList
                 data={items}
                 keyExtractor={item => item.id}
@@ -52,13 +53,6 @@ export const Home: React.FC<HomeProps> = ({ route }) => {
                 renderItem={renderItem}
                 estimatedItemSize={200}
             />
-        </View>
+        </HomeContainer>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 16,
-    },
-})
