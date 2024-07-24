@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client'
-import { GetItems } from '../adapters/graphql/queries/get-items.ts'
+import { GET_ITEMS } from '../adapters/graphql/queries/get-items.ts'
 import { Item } from '../domain/entities/Item.ts'
 
 interface GetItemsData {
@@ -7,7 +7,7 @@ interface GetItemsData {
 }
 
 export const useGetItems = () => {
-    const { loading, error, data } = useQuery<GetItemsData>(GetItems)
+    const { loading, error, data } = useQuery<GetItemsData>(GET_ITEMS)
 
     const items: Item[] = data ? data.items : []
 

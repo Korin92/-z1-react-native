@@ -71,7 +71,7 @@
   "packageManager": "yarn@3.6.4",
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
+      "eslint",
       "prettier --write"
     ]
   }
