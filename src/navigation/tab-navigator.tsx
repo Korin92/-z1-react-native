@@ -4,6 +4,7 @@ import { CategoryService } from '../services/categories/domain/services/category
 import { HomeScreen } from '../ui/pages/home/Home.tsx'
 import { ActivityIndicator, Text } from 'react-native'
 import { TabNavParamList } from './types.ts'
+import { TabBar } from '../ui/components/tab-bar/tab-bar.tsx'
 
 const Tab = createMaterialTopTabNavigator<TabNavParamList>()
 
@@ -15,7 +16,7 @@ export const TabNavigator = () => {
     if (error) return <Text>Error: {error.message}</Text>
 
     return (
-        <Tab.Navigator>
+        <Tab.Navigator tabBar={props => <TabBar {...props} />}>
             <Tab.Screen name="All" component={HomeScreen} initialParams={{ categoryId: null }} />
             {categories.map(category => (
                 <Tab.Screen
