@@ -3,10 +3,12 @@ import {
     AuthorText,
     CardContainer,
     StyledImage,
+    StyledImageContainer,
     TextContainer,
     TitleText,
     TypeText,
 } from './Card.style.ts'
+import { ActivityIndicator } from 'react-native'
 
 interface CardProps {
     title: string
@@ -21,14 +23,21 @@ const fallbackImage = 'https://via.placeholder.com/180/808080/000000?text=No+Ima
 
 export const Card: React.FC<CardProps> = ({ title, author, image, type, layout, onPress }) => {
     const [imageUri, setImageUri] = useState(image)
+    const [isLoading, setIsLoading] = useState(true)
 
     return (
         <CardContainer onPress={onPress} layout={layout}>
-            <StyledImage
-                source={{ uri: imageUri }}
-                layout={layout}
-                onError={() => setImageUri(fallbackImage)}
-            />
+            <StyledImageContainer layout={layout}>
+                {isLoading && <ActivityIndicator />}
+                <StyledImage
+                    source={{ uri: imageUri }}
+                    onLoad={() => setIsLoading(false)}
+                    onError={() => {
+                        setImageUri(fallbackImage)
+                        setIsLoading(false)
+                    }}
+                />
+            </StyledImageContainer>
             <TextContainer>
                 <TypeText>{type}</TypeText>
                 <TitleText>{title}</TitleText>

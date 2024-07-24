@@ -10,11 +10,18 @@ export const CardContainer = styled(Pressable)<{ layout: 'row' | 'column' }>`
     flex-direction: ${props => (props.layout === 'row' ? 'row' : 'column')};
 `
 
-export const StyledImage = styled(Image)<{ layout: 'row' | 'column' }>`
+export const StyledImageContainer = styled(View)<{ layout: 'row' | 'column' }>`
+    justify-content: center;
+    align-items: center;
     width: ${props => (props.layout === 'row' ? '100px' : '100%')};
     height: ${props => (props.layout === 'row' ? '100px' : '150px')};
     margin-right: ${props => (props.layout === 'row' ? '10px' : '0')};
     margin-bottom: ${props => (props.layout === 'row' ? '0' : '10px')};
+`
+
+export const StyledImage = styled(Image)`
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
 `
 
