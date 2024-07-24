@@ -1,3 +1,8 @@
+export const RULES = {
+    OFF: 'off',
+    WARN: 'warn',
+    ERROR: 'error',
+}
 module.exports = {
     root: true,
     env: {
@@ -45,4 +50,7 @@ module.exports = {
     },
     plugins: ['react'],
     parser: '@typescript-eslint/parser',
+    rules: {
+        'react/react-in-jsx-scope': RULES.OFF,
+    },
 }
