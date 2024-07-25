@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { AuthorText, CardContainer, TextContainer, TitleText, TypeText } from './Card.style.ts'
 
-import { CustomImage } from './image/custom-image.tsx'
+import { CustomImage } from '../image/custom-image.tsx'
 import { View } from 'react-native'
 
 interface CardProps {

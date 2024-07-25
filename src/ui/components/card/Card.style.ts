@@ -24,7 +24,7 @@ export const TextContainer = styled.View`
 export const TitleText = styled.Text`
     font-size: 18px;
     color: #f9f9f9;
-    font-family: Poppins-SeimBold;
+    font-family: Poppins-SemiBold;
 `
 
 export const AuthorText = styled.Text`
