@@ -17,7 +17,7 @@ export const TabNavigator = () => {
 
     return (
         <Tab.Navigator tabBar={props => <TabBar {...props} />}>
-            <Tab.Screen name="All" component={HomeScreen} initialParams={{ categoryId: null }} />
+            <Tab.Screen name={'All'} component={HomeScreen} initialParams={{ categoryId: null }} />
             {categories.map(category => (
                 <Tab.Screen
                     key={category.id}

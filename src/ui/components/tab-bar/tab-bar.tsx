@@ -25,7 +25,10 @@ export const TabBar: React.FC<TabBarProps> = ({ state, descriptors, navigation }
                     const isFocused = state.index === index
 
                     return (
-                        <TabItem key={route.key} onPress={() => navigation.navigate(route.name)}>
+                        <TabItem
+                            isFocused={isFocused}
+                            key={route.key}
+                            onPress={() => navigation.navigate(route.name)}>
                             <TabLabel isFocused={isFocused}>{label}</TabLabel>
                         </TabItem>
                     )
