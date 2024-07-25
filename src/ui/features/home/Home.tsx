@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { Text, ActivityIndicator } from 'react-native'
-import { Card } from '../../components/Card.tsx'
+import { Card } from '../../components/card/Card.tsx'
 import { RouteProp, useNavigation } from '@react-navigation/native'
 import { DetailScreenNavigationProp, TabNavParamList } from '../../../navigation/types.ts'
 import { ItemService } from '../../../services/items/domain/services/item-service.ts'
