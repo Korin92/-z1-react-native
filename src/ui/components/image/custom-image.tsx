@@ -5,13 +5,7 @@ import { CustomImageProps } from './types.ts'
 
 const fallbackImage = 'https://via.placeholder.com/640x360/808080/000000?text=No+Image+Available'
 
-export const CustomImage: React.FC<CustomImageProps> = ({
-    layout,
-    source,
-    width,
-    height,
-    borderRadius,
-}) => {
+export const CustomImage: React.FC<CustomImageProps> = ({ layout, source, width, height }) => {
     const [imageUri, setImageUri] = useState(source)
     const [isLoading, setIsLoading] = useState(true)
 
@@ -28,7 +22,6 @@ export const CustomImage: React.FC<CustomImageProps> = ({
         <StyledImageContainer width={width} height={height} layout={layout}>
             {isLoading && <ActivityIndicator />}
             <StyledImage
-                borderRadius={borderRadius}
                 source={{ uri: imageUri }}
                 onLoad={handleLoad}
                 onError={handleError}

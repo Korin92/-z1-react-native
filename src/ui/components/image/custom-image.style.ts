@@ -10,5 +10,5 @@ export const StyledImageContainer = styled(View)<CustomImageStyleProps>`
 export const StyledImage = styled(Image)<CustomImageStyleProps>`
     width: 100%;
     height: 100%;
-    border-radius: ${props => props.borderRadius || '10px'};
+    border-radius: ${props => (props.layout === 'column' ? '10px 10px 0 0' : '10px')};
 `

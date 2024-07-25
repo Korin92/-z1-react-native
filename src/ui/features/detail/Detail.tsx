@@ -31,10 +31,10 @@ export const Detail: React.FC<DetailProps> = ({ id }) => {
             <CategoryText>{item?.category.title}</CategoryText>
             <TitleText>{item?.title}</TitleText>
             <AuthorText>{item?.author}</AuthorText>
-            <CustomImage source={item?.image || ''} />
             <Pressable onPress={() => navigation.navigate('PlayerDetail')}>
                 <Text>Go to player</Text>
             </Pressable>
+            <CustomImage height={'300px'} width={'100%'} source={item?.image || ''} />
             <ContentText>{item?.content}</ContentText>
         </DetailContainer>
     )

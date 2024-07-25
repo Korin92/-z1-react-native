@@ -19,7 +19,6 @@ const CardComponent: React.FC<CardProps> = ({ title, author, image, type, layout
     return (
         <CardContainer onPress={onPress} layout={layout}>
             <CustomImage
-                borderRadius={isRow ? '10px' : '10px 10px 0 0'}
                 width={isRow ? '120px' : '100%'}
                 height={isRow ? '120px' : '40%'}
                 source={image}
