@@ -2,6 +2,7 @@ import React, { memo } from 'react'
 import { AuthorText, CardContainer, TextContainer, TitleText, TypeText } from './Card.style.ts'
 
 import { CustomImage } from './image/custom-image.tsx'
+import { View } from 'react-native'
 
 interface CardProps {
     title: string
@@ -13,13 +14,23 @@ interface CardProps {
 }
 
 const CardComponent: React.FC<CardProps> = ({ title, author, image, type, layout, onPress }) => {
+    const isRow = layout === 'row'
+
     return (
         <CardContainer onPress={onPress} layout={layout}>
-            <CustomImage source={image} layout={layout} />
+            <CustomImage
+                borderRadius={isRow ? '10px' : '10px 10px 0 0'}
+                width={isRow ? '120px' : '100%'}
+                height={isRow ? '120px' : '40%'}
+                source={image}
+                layout={layout}
+            />
             <TextContainer>
-                <TypeText>{type ?? 'no type'}</TypeText>
-                <TitleText>{title ?? 'no title'}</TitleText>
-                <AuthorText>{author ?? 'no author'}</AuthorText>
+                <View>
+                    <TypeText>{type}</TypeText>
+                    <TitleText>{title}</TitleText>
+                </View>
+                <AuthorText>{author}</AuthorText>
             </TextContainer>
         </CardContainer>
     )

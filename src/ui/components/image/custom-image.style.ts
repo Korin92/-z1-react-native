@@ -1,14 +1,14 @@
 import { Image, View } from 'react-native'
 import styled from 'styled-components'
+import { CustomImageStyleProps } from './types.ts'
 
-export const StyledImageContainer = styled(View)<{ layout?: 'row' | 'column' }>`
-    width: ${props => (props.layout === 'row' ? '100px' : '100%')};
-    height: ${props => (props.layout === 'row' ? '100px' : '150px')};
+export const StyledImageContainer = styled(View)<CustomImageStyleProps>`
+    width: ${props => props.width || '100%'};
+    height: ${props => props.height || '100%'};
     margin-right: ${props => (props.layout === 'row' ? '10px' : '0')};
-    margin-bottom: ${props => (props.layout === 'row' ? '0' : '10px')};
 `
-export const StyledImage = styled(Image)<{ layout?: 'row' | 'column' }>`
+export const StyledImage = styled(Image)<CustomImageStyleProps>`
     width: 100%;
-    height: ${props => (props.layout === 'row' ? '100%' : '60%')};
-    border-radius: 10px;
+    height: 100%;
+    border-radius: ${props => props.borderRadius || '10px'};
 `
