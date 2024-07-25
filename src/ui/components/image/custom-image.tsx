@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { StyledImage, StyledImageContainer } from './custom-image.style.ts'
-import { ActivityIndicator } from 'react-native'
+import { ActivityIndicator, View } from 'react-native'
 import { CustomImageProps } from './types.ts'
 
 const fallbackImage = 'https://via.placeholder.com/640x360/808080/000000?text=No+Image+Available'
@@ -21,12 +21,14 @@ export const CustomImage: React.FC<CustomImageProps> = ({ layout, source, width,
     return (
         <StyledImageContainer width={width} height={height} layout={layout}>
             {isLoading && <ActivityIndicator />}
-            <StyledImage
-                source={{ uri: imageUri }}
-                onLoad={handleLoad}
-                onError={handleError}
-                layout={layout}
-            />
+            <View>
+                <StyledImage
+                    source={{ uri: imageUri }}
+                    onLoad={handleLoad}
+                    onError={handleError}
+                    layout={layout}
+                />
+            </View>
         </StyledImageContainer>
     )
 }
