@@ -40,6 +40,7 @@
 		5BB9D1672C52AAF400E5D13A /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9D1552C52AAF400E5D13A /* Poppins-Black.ttf */; };
 		5BB9D1682C52AAF400E5D13A /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9D1562C52AAF400E5D13A /* Poppins-ThinItalic.ttf */; };
 		5BB9D1692C52AAF400E5D13A /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9D1572C52AAF400E5D13A /* Poppins-BoldItalic.ttf */; };
+		5BB9D1802C52D44A00E5D13A /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9D17F2C52D44A00E5D13A /* dummy.swift */; };
 		7699B88040F8A987B510C191 /* libPods-z1ReactNative-z1ReactNativeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-z1ReactNative-z1ReactNativeTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B0D5BA1D467C5621D2E622AA /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2983D90C6CF371196B37C9C2 /* PrivacyInfo.xcprivacy */; };
@@ -122,6 +123,8 @@
 		5BB9D17A2C52D1B900E5D13A /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		5BB9D17B2C52D1B900E5D13A /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		5BB9D17C2C52D1B900E5D13A /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		5BB9D17E2C52D44A00E5D13A /* z1ReactNative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "z1ReactNative-Bridging-Header.h"; sourceTree = "<group>"; };
+		5BB9D17F2C52D44A00E5D13A /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-z1ReactNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-z1ReactNative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = z1ReactNative/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-z1ReactNative-z1ReactNativeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-z1ReactNative-z1ReactNativeTests.release.xcconfig"; path = "Target Support Files/Pods-z1ReactNative-z1ReactNativeTests/Pods-z1ReactNative-z1ReactNativeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				2983D90C6CF371196B37C9C2 /* PrivacyInfo.xcprivacy */,
+				5BB9D17F2C52D44A00E5D13A /* dummy.swift */,
+				5BB9D17E2C52D44A00E5D13A /* z1ReactNative-Bridging-Header.h */,
 			);
 			name = z1ReactNative;
 			sourceTree = "<group>";
@@ -370,7 +375,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -586,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				5BB9D1802C52D44A00E5D13A /* dummy.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,6 +611,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-z1ReactNative-z1ReactNativeTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -632,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-z1ReactNative-z1ReactNativeTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = z1ReactNativeTests/Info.plist;
@@ -674,6 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.carmen.z1ReactNative;
 				PRODUCT_NAME = z1ReactNative;
+				SWIFT_OBJC_BRIDGING_HEADER = "z1ReactNative-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -701,6 +710,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.carmen.z1ReactNative;
 				PRODUCT_NAME = z1ReactNative;
+				SWIFT_OBJC_BRIDGING_HEADER = "z1ReactNative-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
