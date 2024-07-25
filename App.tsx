@@ -5,6 +5,7 @@ import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
 import { StatusBar } from 'react-native'
 import StackNavigator from './src/navigation/stack-navigator'
 import { background } from './src/styles/colors'
+import './src/i18n'
 
 const MyTheme = {
     ...DefaultTheme,
