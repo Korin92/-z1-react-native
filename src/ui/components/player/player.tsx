@@ -10,15 +10,15 @@ import {
 import { PlayerProps } from './types.ts'
 
 export const Player: React.FC<PlayerProps> = ({
-    handleSeekForward,
-    handleSeekBackward,
+    handleForward,
+    handleBackward,
     isPlaying,
     handlePlayPause,
 }) => {
     return (
         <PlayerContainer>
             <BackgroundButton>
-                <PlayerReplayIcon size={30} name="replay-10" onPress={handleSeekBackward} />
+                <PlayerReplayIcon size={30} name="replay-10" onPress={handleBackward} />
             </BackgroundButton>
             <BackgroundButton>
                 {isPlaying ? (
@@ -28,7 +28,7 @@ export const Player: React.FC<PlayerProps> = ({
                 )}
             </BackgroundButton>
             <BackgroundButton>
-                <PLayerForwardIcon name="forward-10" size={30} onPress={handleSeekForward} />
+                <PLayerForwardIcon name="forward-10" size={30} onPress={handleForward} />
             </BackgroundButton>
         </PlayerContainer>
     )

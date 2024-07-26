@@ -1,6 +1,6 @@
 export interface PlayerProps {
     isPlaying: boolean
-    handleSeekBackward: () => void
-    handleSeekForward: () => void
+    handleBackward: () => void
+    handleForward: () => void
     handlePlayPause: () => void
 }

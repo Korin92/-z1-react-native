@@ -1,9 +1,10 @@
-import { StyleSheet } from 'react-native'
 import { background } from './colors.ts'
+import { DefaultTheme } from '@react-navigation/native'
 
-export const globalStyles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: background,
+export const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+        ...DefaultTheme.colors,
+        background: background,
     },
-})
+}

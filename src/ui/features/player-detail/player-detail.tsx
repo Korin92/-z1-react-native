@@ -57,12 +57,12 @@ export const PlayerDetail = () => {
         }
     }, [])
 
-    const handleSeekForward = async () => {
+    const handleForward = async () => {
         const { position } = await TrackPlayer.getProgress()
         await TrackPlayer.seekTo(position + 10)
     }
 
-    const handleSeekBackward = async () => {
+    const handleBackward = async () => {
         const { position } = await TrackPlayer.getProgress()
         await TrackPlayer.seekTo(Math.max(position - 10, 0))
     }
@@ -83,8 +83,8 @@ export const PlayerDetail = () => {
             <CustomSlider handleSliderChange={handleSliderChange} progress={progress} />
             <Player
                 isPlaying={isPlaying}
-                handleSeekBackward={handleSeekBackward}
-                handleSeekForward={handleSeekForward}
+                handleForward={handleForward}
+                handleBackward={handleBackward}
                 handlePlayPause={handlePlayPause}
             />
         </PlayerDetailContainer>

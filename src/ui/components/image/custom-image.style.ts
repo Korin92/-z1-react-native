@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { CustomImageStyleProps } from './types.ts'
 
 export const StyledImageContainer = styled(View)<CustomImageStyleProps>`
-    width: ${props => props.width || '100%'};
-    height: ${props => props.height || '100%'};
+    width: ${props => props.width};
+    height: ${props => (props.height ? `${props.height}px` : '100%')};
     margin-right: ${props => (props.layout === 'row' ? '10px' : '0')};
 `
 export const StyledImage = styled(Image)<CustomImageStyleProps>`
