@@ -1,20 +1,13 @@
 import React, { useEffect } from 'react'
 import { ApolloProvider } from '@apollo/client'
 import client from './src/apollo/apollo-client'
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
 import { StatusBar } from 'react-native'
 import StackNavigator from './src/navigation/stack-navigator'
 import { background } from './src/styles/colors'
 import TrackPlayer from 'react-native-track-player'
 import './src/i18n'
-
-const MyTheme = {
-    ...DefaultTheme,
-    colors: {
-        ...DefaultTheme.colors,
-        background: background,
-    },
-}
+import { MyTheme } from './src/styles/global-styles'
 
 function App(): React.JSX.Element {
     useEffect(() => {
